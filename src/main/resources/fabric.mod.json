@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "rewrite-villager-helper",
+  "version": "${version}",
+
+  "name": "Rewrite's Villager Helper",
+  "description": "Inspect villager POI assignments with visual overlays. Shift+right-click a villager to highlight it and draw lines to its bed and job site. Shift+right-click any POI block to find out which villager owns it. Works in single player and multiplayer when installed on both client and server.",
+  "authors": [],
+  "contact": {
+    "homepage": "https://github.com/rewrite-va/villager-helper",
+    "sources": "https://github.com/rewrite-va/villager-helper"
+  },
+
+  "icon": "assets/villagerhelper/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "rewrite.villagerhelper.VillagerHelperServer"
+    ],
+    "client": [
+      "rewrite.villagerhelper.VillagerHelperMod"
+    ],
+    "modmenu": [
+      "rewrite.villagerhelper.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "villagerhelper.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": ">=26.1"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
