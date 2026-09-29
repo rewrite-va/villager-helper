@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.Comparator;
 import java.util.Optional;
@@ -50,7 +51,7 @@ public class VillagerHelperServer implements ModInitializer {
                 ServerLevel level = (ServerLevel) ctx.player().level();
                 BlockPos target = payload.blockPos();
 
-                level.getEntitiesOfClass(Villager.class, AABB.ofSize(target.getCenter(), 64, 64, 64))
+                level.getEntitiesOfClass(Villager.class, AABB.ofSize(Vec3.atCenterOf(target), 64, 64, 64))
                     .stream()
                     .filter(v -> {
                         Optional<BlockPos> home = v.getBrain().getMemory(MemoryModuleType.HOME).map(GlobalPos::pos);

@@ -33,7 +33,7 @@ public class VillagerHelperMod implements ClientModInitializer {
 
         ClientPlayNetworking.registerGlobalReceiver(BlockPoiResponsePacket.TYPE, (payload, ctx) -> {
             if (!payload.found()) {
-                Minecraft.getInstance().gui.setOverlayMessage(
+                Minecraft.getInstance().gui.hud.setOverlayMessage(
                     Component.literal("No villager owns this block"), false);
                 return;
             }
